@@ -17,6 +17,7 @@ Vous trouverez ci-dessous la liste des bibliothèques utilisées :
 - [Pycrypto](https://www.dlitz.net/software/pycrypto/)
 - [MySQL Connector](https://dev.mysql.com/doc/connector-python/en/)
 - [Yaml](https://pyyaml.org/wiki/PyYAMLDocumentation)
+- [OpenCV](https://github.com/opencv/opencv-python)
 
 Pour les installer, vous pouvez vous aider des commandes suivantes :
 
@@ -28,7 +29,10 @@ pip install pycrypto
 pip install mysql-connector-python
 
 # Yaml
-sudo pip install pyyaml
+pip install pyyaml
+
+# OpenCV
+pip install opencv-python
 ```
 ## Fichier de configuration
 
