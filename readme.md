@@ -18,6 +18,8 @@ Vous trouverez ci-dessous la liste des bibliothèques utilisées :
 - [MySQL Connector](https://dev.mysql.com/doc/connector-python/en/)
 - [Yaml](https://pyyaml.org/wiki/PyYAMLDocumentation)
 - [OpenCV](https://github.com/opencv/opencv-python)
+- [Face Recognition](https://github.com/ageitgey/face_recognition)
+- [Numpy](https://numpy.org/)
 
 Pour les installer, vous pouvez vous aider des commandes suivantes :
 
@@ -33,6 +35,14 @@ pip install pyyaml
 
 # OpenCV
 pip install opencv-python
+
+# Face Recognition
+pip install cmake
+pip install dlib
+pip install face_recognition
+
+# Numpy
+pip install numpy
 ```
 ## Fichier de configuration
 
@@ -53,8 +63,10 @@ Voici un exemple de ce à quoi il devrait ressembler :
 Pour lancer le programme il suffit d’être à la racine du fichier `are_you_allowed.py` et de lancer la
 commande suivante :
 ```bash
-# Pycrypto
 python are_you_allowed.py config/file/path/config.yaml
 ```
 
-:warning: **Vous devez remplacer config/file/path/config.yaml par le chemin de où se trouve le fichier de configuration préalablement modifié.**
+:warning: **Vous devez remplacer `config/file/path/config.yaml` par le chemin de où se trouve le fichier de configuration préalablement modifié.**
+
+## Sources
+- https://webpick.info/la-reconnaissance-faciale-avec-python/
