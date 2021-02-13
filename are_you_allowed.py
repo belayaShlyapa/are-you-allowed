@@ -6,9 +6,10 @@ import os
 import re
 import face_recognition
 import numpy as np
+import time
 
 from video import create_capture
-from common import draw_str
+from common import draw_str, clock
 
 # Read yaml config file
 yamldata = utils.readYamlConfigFile(sys.argv[1])
@@ -52,6 +53,7 @@ cam = create_capture(0, fallback='synth:bg={}:noise=0.05'.format(cv.samples.find
 
 while True:
   _, frame = cam.read()
+  tempsAvantCalculs = clock()
 
   if process_this_frame:
     face_locations = face_recognition.face_locations(frame)
@@ -67,6 +69,9 @@ while True:
     best_match_index = np.argmin(face_distances)
     if matches[best_match_index]:
       name = known_face_names[best_match_index]
+      print(name)
+    else:
+      print("Inconnu")
 
     face_names.append(name)
 
@@ -80,6 +85,11 @@ while True:
     font = cv.FONT_HERSHEY_DUPLEX
     cv.putText(frame, name, (left + 6, bottom -6), font, 1.0, (255, 255, 255), 1)
 
+  tempsApresCalculs = clock() - tempsAvantCalculs
+  time.sleep(2.0-tempsApresCalculs) # une image toutes les deux secondes
+  tempsApresCalculsEtPause = clock() - tempsAvantCalculs # deux soncdes
+  draw_str(frame, (20, 20), 'ips: %.1f Hz' % (1/tempsApresCalculsEtPause))
+    
   cv.imshow('sensor', frame)
 
   # break loop if 'ESC' button is pressed
